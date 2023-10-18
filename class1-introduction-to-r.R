@@ -67,3 +67,35 @@ myData <- rbind(myData, newRecord)
 funny <- factor(c("High", "Low", 
                   "Medium", "Medium"))
 myData <- cbind(myData, funny)
+
+
+# Conditionals
+# if else switch
+var1 <- 3
+#relational operators: >,<,<=,>=,==,!=
+# var1 == 5
+# = assignment
+if (var1 > 4) {
+  print ("var1 is greater than 4")
+} else {
+  print("var1 is less than 4")
+}
+# Loops
+mVectorL <- c(1:9)
+print(mVectorL)
+print(mVectorL[1])
+# keywords for loop: for, while
+for (i in mVectorL) {
+if (mVectorL[i] %% 2 != 0)
+  print("the number is odd") else
+    print("the number is even")
+}
+# Functions
+# Function definition: defines what a function does
+# Function calling: call that function by its name
+
+sum_numbers <- function (a,b) {
+  a + b
+}
+
+print(sum_numbers(10,20))
