@@ -75,12 +75,25 @@ starwars_sub <- starwars %>%
 ?msleep
 # how to create a new column by modifying an old column
 
-starwars[duplicated(starwars),]
-starwars_rows <- starwars[duplicated(starwars),]
-starwars_new <- 
-summary(starwars)
-starwars_new <- unique(starwars)
-summary(starwars_new)
-starwars_new <- unique(starwars[,c("col2","col3")])
-starwars_new <- duplicated(starwars[c("col2","col3"),])
-starwars_new_new <- starwars[!starwars_new,]
+# use histogram to view the spread of one column
+ggplot(starwars, aes(x=height)) + 
+  geom_histogram() +
+  labs (x="height of characters")
+
+# use box and whisker plot
+ggplot(starwars, aes(y = height)) +
+  geom_boxplot()
+
+# use box and whisker with theme
+ggplot(starwars, aes(y = height)) +
+  geom_boxplot(fill = "lightblue", color = "blue") +
+  labs(title = "Box-and-Whisker Plot",
+       x = "Variable Name",
+       y = "Data Values") +
+  theme_minimal()
+
+correlation_matrix <- cor(starwars)
+
+# challenge:
+# find duplicates and remove them
+# create a new column from an existing column
