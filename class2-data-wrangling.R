@@ -94,6 +94,9 @@ ggplot(starwars, aes(y = height)) +
 
 correlation_matrix <- cor(starwars)
 
+# load dataset
+df_titanic <- read_csv("titanic.csv")
+view(df_titanic)
 # challenge:
 # find duplicates and remove them
 # create a new column from an existing column
