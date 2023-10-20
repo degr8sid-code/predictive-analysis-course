@@ -1,3 +1,4 @@
+library("tidyverse")
 # install packages
 install.packages("sqldf")
 # load the library
@@ -46,11 +47,47 @@ personData %>%
   select(PersonType) %>% 
   ggplot(aes(PersonType)) +
   geom_bar()
-  
+
 # more queries
+
 # Query 1: get firstname and lastname from person who received 0 email promotion (Person.Person)
+
+query_1 <- "select firstname, lastname from person.person
+where emailpromotion = 0"
+result_1 <- sqlQuery(db_conn, query_1, stringsAsFactors = FALSE)
+view(result_1)
+
 # Query 2: What are the most popular products among customers? (will require JOIN) (Sales.SalesOrderDetail and Production.Product)
+query_2 <- "select p.name, 
+sum(s.OrderQty) sumOfOrder
+from production.product p
+join
+sales.SalesOrderDetail s
+on p.ProductID = s.ProductID
+group by(p.name)
+order by sumOfOrder DESC"
+result_2 <- sqlQuery(db_conn, query_2)
+view(result_2)
+
 # Query 3: How many items with ListPrice more than $1000 have been sold? (Use JOIN) (sales.salesorderdetail and production.product)
+query_3_1 <- "select p.name, sum(s.OrderQty) sumOfOrder
+from production.product p
+join
+sales.SalesOrderDetail s
+on p.ProductID = s.ProductID
+where p.ListPrice > 1000
+group by(p.name)
+order by sumOfOrder DESC"
+result_3_1 <- sqlQuery(db_conn, query_3_1)
+view(result_3_1)
+
+# another way to get the result in question 3
+query_3_2 <- "SELECT COUNT(salesorderid)
+FROM Sales.SalesOrderDetail s 
+JOIN Production.Product p ON s.productid = p.productid
+WHERE listprice > 1000"
+result_3_2 <- sqlQuery(db_conn, query_3_2)
+view(result_3_2)
 
 # get the data for all person where person type is employee
 # 6th step: close the connection
