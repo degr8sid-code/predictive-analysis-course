@@ -42,7 +42,10 @@ head(personData)
 
 # we can use SQL query result for data cleaning
 # and data visualiztion
-
+personData %>% 
+  select(PersonType) %>% 
+  ggplot(aes(PersonType)) +
+  geom_bar()
   
 # more queries
 # Query 1: get firstname and lastname from person who received 0 email promotion (Person.Person)
