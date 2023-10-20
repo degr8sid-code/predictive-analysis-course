@@ -21,7 +21,7 @@ This topic discusses:
 - Data Cleaning
 - Data Visualization
 
-  [Unit 2 Code]()
+[Unit 2 Code](https://github.com/degr8sid-code/predictive-analysis-course/blob/main/class2-data-wrangling.R)
   
 ## Assignments
 - [Assignment 1: Working with Dataframes]()
