@@ -1,0 +1,35 @@
+---
+title: "Assignment-3"
+output: html_document
+date: "2023-10-20"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Assignment 3 - Using SQL in R
+
+Installing packages:
+
+```{r echo=TRUE, message=TRUE}
+{library("tidyverse")}
+```
+
+```{r echo=TRUE, message=TRUE}
+1+1
+```
+
+```{r}
+
+```
+
+## Step 2: Create the Connection
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
